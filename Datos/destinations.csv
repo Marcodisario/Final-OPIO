@@ -1,0 +1,6 @@
+destination,nominal_demand,shortage_penalty,initial_inventory,storage_capacity,holding_cost,waste_cost
+Capital,50.0,80.0,8.0,65.0,0.4,0.8
+Oeste,42.0,70.0,6.0,55.0,0.35,0.7
+Este,38.0,65.0,5.0,50.0,0.32,0.65
+Costa,46.0,75.0,7.0,60.0,0.38,0.75
+Interior,35.0,60.0,5.0,48.0,0.3,0.6

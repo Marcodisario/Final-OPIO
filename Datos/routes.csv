@@ -1,0 +1,16 @@
+route_id,origin,destination,unit_cost,capacity
+N-CAP,Norte,Capital,4.0,42.0
+N-OES,Norte,Oeste,6.0,28.0
+N-EST,Norte,Este,5.0,30.0
+N-COS,Norte,Costa,9.0,18.0
+N-INT,Norte,Interior,7.0,26.0
+C-CAP,Centro,Capital,5.0,35.0
+C-OES,Centro,Oeste,3.0,35.0
+C-EST,Centro,Este,4.0,34.0
+C-COS,Centro,Costa,6.0,32.0
+C-INT,Centro,Interior,5.0,28.0
+S-CAP,Sur,Capital,8.0,22.0
+S-OES,Sur,Oeste,6.0,26.0
+S-EST,Sur,Este,5.0,30.0
+S-COS,Sur,Costa,3.0,38.0
+S-INT,Sur,Interior,4.0,30.0
