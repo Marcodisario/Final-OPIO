@@ -1,0 +1,16 @@
+route_id,origin,destination,planned_flow,capacity,unit_cost,policy
+N-CAP,Norte,Capital,42.0,42.0,4.0,Comparador +5% demanda
+N-OES,Norte,Oeste,10.0,28.0,6.0,Comparador +5% demanda
+N-EST,Norte,Este,30.0,30.0,5.0,Comparador +5% demanda
+N-COS,Norte,Costa,0.0,18.0,9.0,Comparador +5% demanda
+N-INT,Norte,Interior,1.999999999999997,26.0,7.0,Comparador +5% demanda
+C-CAP,Centro,Capital,11.0,35.0,5.0,Comparador +5% demanda
+C-OES,Centro,Oeste,35.0,35.0,3.0,Comparador +5% demanda
+C-EST,Centro,Este,10.0,34.0,4.0,Comparador +5% demanda
+C-COS,Centro,Costa,11.0,32.0,6.0,Comparador +5% demanda
+C-INT,Centro,Interior,8.0,28.0,5.0,Comparador +5% demanda
+S-CAP,Sur,Capital,0.0,22.0,8.0,Comparador +5% demanda
+S-OES,Sur,Oeste,0.0,26.0,6.0,Comparador +5% demanda
+S-EST,Sur,Este,0.0,30.0,5.0,Comparador +5% demanda
+S-COS,Sur,Costa,38.0,38.0,3.0,Comparador +5% demanda
+S-INT,Sur,Interior,27.0,30.0,4.0,Comparador +5% demanda
