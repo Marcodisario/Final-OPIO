@@ -1,0 +1,6 @@
+# Dependencias usadas por los notebooks de Parte I y Parte II
+ortools
+numpy
+pandas
+scipy
+jupyter

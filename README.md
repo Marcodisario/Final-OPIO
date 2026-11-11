@@ -32,11 +32,10 @@ resultado.
   independiente, resolviendo el caso nominal y los escenarios, y exportando los
   planes puente con sus hashes SHA-256.
 - **Prompt:** solicitud de implementar esos puntos en forma simple, concisa e
-  interpretable, sin editar el notebook y dejando el código preparado para
-  ejecutarlo cuando estén disponibles los datos faltantes.
-- **Archivos afectados:** este README. No se editaron los notebooks ni se
-  generaron archivos de salida; el código se compartió en la conversación para
-  que el equipo lo revise y lo pegue.
+  interpretable, inicialmente para que el equipo pegara el código en el
+  notebook y, posteriormente, para integrarlo directamente.
+- **Archivos afectados:** `Parte1/part1_primal.ipynb` (celdas de código de los
+  puntos 4–7) y este README. Se generaron los dos CSV puente en `outputs/`.
 - **Decisión:** pendiente de revisión del equipo. El uso de OR-Tools responde a
   la elección solicitada por el equipo, aunque el notebook original menciona
   `scipy.optimize.linprog`. La firma de las funciones se amplió para recibir
@@ -50,16 +49,58 @@ resultado.
   argumentos. Se adaptó la firma para incluirlos. El equipo debe confirmar que
   esta decisión coincide con su Ficha de Modelo Acordado y actualizar el
   registro si la modifica.
-- **Prueba realizada:** no se ejecutó el código. Faltan `origins.csv` y
-  `diccionario_datos.csv`; además, todavía hay que revisar que los nombres de
-  columnas de esos archivos coincidan con los usados al preparar los
-  argumentos. La validación computacional queda pendiente.
+- **Prueba realizada:** las celdas de código de Parte I tienen resultados
+  guardados en el notebook. La verificación independiente reporta una violación
+  máxima de `7.11e-15`, inferior a la tolerancia `1e-7`; los escenarios
+  terminaron en estado óptimo y se generaron los puentes con SHA-256.
+- **Estado de datos actualizado:** ya están disponibles los CSV requeridos. El
+  diccionario actual se llama `Datos/diccionario_de_datos.csv` (no
+  `diccionario_datos.csv`). La oferta de `origins.csv` está identificada en el
+  diccionario como valor didáctico propuesto.
+
+### 2026-11-11 — Implementación y correcciones de la Parte II
+
+- **Herramienta:** OpenAI Codex, asistente de IA.
+- **Objetivo:** completar la carga de datos y puentes, la estimación de Markov,
+  el simulador semanal, los controles, el piloto y la comparación Monte Carlo
+  emparejada; corregir errores reportados al ejecutar la celda de carga.
+- **Prompt:** solicitud de completar los códigos de la Parte II, validar las
+  rutas de datos y corregir los errores de carga detectados.
+- **Archivos afectados:** `Parte2/part2_markov_montecarlo.ipynb` (celdas de
+  código de carga, Markov, simulación, piloto y campaña) y
+  `outputs/informe_ejecutivo.html`.
+- **Decisión:** cambios incorporados al notebook. Se reemplazaron las rutas
+  incorrectas por una búsqueda compatible con ejecución desde `Parte2` o la
+  raíz del proyecto. Se actualizaron los hashes esperados de los puentes
+  regenerados y se quitó la dependencia de `data_status`, columna que no existe
+  en el archivo actual de parámetros de estado.
+- **Sugerencia útil para presentar:** generar un mismo entorno aleatorio por
+  réplica y evaluar ambas políticas en él permite estimar directamente la
+  diferencia resguardo menos nominal con números aleatorios comunes.
+- **Sugerencia corregida/adaptada para presentar:** los hashes fijados
+  anteriormente no correspondían a los puentes actuales, y la celda intentaba
+  leer una columna opcional inexistente. Se actualizaron los hashes luego de
+  verificar los archivos y se validan ahora las columnas que el simulador
+  realmente utiliza.
+- **Prueba realizada:** se comprobó que las rutas llegan a `Datos/` desde la
+  raíz y desde `Parte2`, que los CSV puente existen, que sus hashes coinciden
+  con los valores fijados y que sus 15 rutas, metadatos, políticas y flujos no
+  negativos son consistentes con `routes.csv`. Se corrigió además el
+  `KeyError: 'data_status'`. No se volvió a ejecutar la campaña completa de
+  1.200 réplicas en esta sesión; el informe usa las salidas Monte Carlo
+  disponibles en `outputs/`.
+- **Supuestos documentados en el código:** demanda Poisson con media ajustada
+  por estado y disponibilidad Bernoulli por ruta, independientes
+  condicionalmente al estado. Los multiplicadores de estado son valores
+  didácticos propuestos según el diccionario actual.
+- **Pendiente de reconciliar:** el contrato H3 dice que el piloto corresponde a
+  las primeras 200 de las 1.200 réplicas, mientras que el código separa las
+  secuencias de semillas del piloto y la campaña final. Alinear el protocolo y
+  regenerar las salidas antes de la entrega final.
 
 ## Próximo paso de registro
 
-Cuando el equipo revise y ejecute el código, actualice la intervención anterior
-con su decisión final y el resultado de la prueba. Para nuevas intervenciones,
-copie este formato:
+Para nuevas intervenciones, copie este formato:
 
 ### AAAA-MM-DD — Título de la intervención
 
